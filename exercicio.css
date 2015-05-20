@@ -6,22 +6,122 @@
 /*
  * Exercício 2: Você deve implementar uma metáfora visual para cada um dos 4
  * estados dos animais. Algumas sugestões:
- *   - agitado: animal piscando (opacidade variando)
- *   - alimentado: uma borda verde no animal e o animal fica girando de alegria
- *   - perturbado: animal fica pulsando
- *   - instinto-selvagem: animal dá um salto e cresce, com uma borda vermelha
+ *   - agitado: animal piscando (opacidade variando)                            ==> Pisca com opacidade 
+ *   - alimentado: uma borda verde no animal e o animal fica girando de alegria ==> Roda prumlado e prooutro
+ *   - perturbado: animal fica pulsando                                         
+ *   - instinto-selvagem: animal dá um salto e cresce, com uma borda vermelha    
  */
-.agitado {}
-.agitado img {}
+ 
+	.alimentado {
+		animation: prooutro 1.1s, prumlado 1.1s 0.5s infinite ;
+		-webkit-animation: prooutro 1.1s, prumlado 1.1s 0.5s infinite ;
+	}
+	
+	@keyframes prumlado {
+		from { transform: rotate(0deg); }
+		to   { transform: rotate(55deg); }
+	}	
+	@keyframes prooutro {
+		from { transform: rotate(0deg); }
+		to   { transform: rotate(-55deg); }
+	}
+	/* Chrome, Safari, Opera */
+	@-webkit-keyframes prumlado {
+		from { transform: rotate(0deg); }
+		to   { transform: rotate(55deg); }
+	}	
+	@-webkit-keyframes prooutro {
+		from { transform: rotate(0deg); }
+		to   { transform: rotate(-55deg); }
+	}
 
-.alimentado {}
-.alimentado img {}
+	.alimentado img {
+		border-style: solid;
+		border-width: 5px;
+		border-color: green;
+	}
+ 
+	.agitado {
+		animation-name: anima1;
+		animation-duration: 0.8s;
+		animation-delay: 0.2s;
+	}
+		/* Standard syntax */
+		@keyframes anima1 {
+			0%   {opacity: 0.2}
+			25%  {opacity: 0.4}
+			50%  {opacity: 0.6}
+			75%  {opacity: 0.8}
+			100%  {opacity: 1}
+		}
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes anima1 {
+			0%   {opacity: 0.2}
+			25%  {opacity: 0.4}
+			50%  {opacity: 0.6}
+			75%  {opacity: 0.8}
+			100%  {opacity: 1}
+		}
 
-.perturbado {}
-.perturbado img {}
+	.agitado img {
+		border-style: solid;
+		border-width: 5px;
+		border-color: grey;
+	}
+
+	.perturbado {
+		animation: pulapula 0.4s  infinite alternate;
+		-webkit-animation: pulapula 0.4s infinite alternate;
+	}
+	
+	.perturbado img{
+		border-style: solid;
+		border-width: 5px;
+		border-color: red;
+	}
+	
+	/* Standard syntax */
+	@keyframes pulapula {
+		  from { 
+			transform: translateY(0px);
+		  }
+		  to   { 
+			transform: translateY(-90px);
+		  }
+	}
+	
+	/* Chrome, Safari, Opera */
+	@-webkit-keyframes pulapula {
+		  from { 
+			transform: translateY(0px);
+		  }
+		  to   { 
+			transform: translateY(-90px);
+		  }
+	}
 
 .instinto-selvagem {}
 .instinto-selvagem img {}
+
+	/* Standard syntax */
+	@keyframes pulacresce {
+		  from { 
+			transform: translateY(0px);
+		  }
+		  to   { 
+			transform: translateY(-90px);
+		  }
+	}
+	
+	/* Chrome, Safari, Opera */
+	@-webkit-keyframes pulacresce {
+		  from { 
+			transform: translateY(0px) scale(1,1);
+		  }
+		  to   { 
+			transform: translateY(-90px) scale(1.7,1.7);
+		  }
+	}
 
 /*
  * Exercício 3: Criar uma imagem sprite com as imagens dos botões de controle
