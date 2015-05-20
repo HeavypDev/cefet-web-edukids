@@ -100,8 +100,16 @@
 		  }
 	}
 
-.instinto-selvagem {}
-.instinto-selvagem img {}
+.instinto-selvagem {
+		animation: pulacresce 0.3s  infinite alternate;
+		-webkit-animation: pulacresce 0.3s infinite alternate;
+}
+
+.instinto-selvagem img {
+		border-style: solid;
+		border-width: 5px;
+		border-color: black;
+}
 
 	/* Standard syntax */
 	@keyframes pulacresce {
